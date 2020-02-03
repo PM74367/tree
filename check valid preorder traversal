@@ -1,0 +1,40 @@
+#include <assert.h>
+#include <ctype.h>
+#include <limits.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+char* isValid(int a_count, int* a) {
+    int i,j,l;
+    for(i=0;i<a_count-1;i++){
+        for(l=i+1;l<a_count-1;l++){
+        if(a[i]<a[l]){
+            for(j=l;j<a_count;j++)
+            {
+                if(a[j]<a[i])
+                    return "NO";
+            }
+        }}
+    }
+    return "YES";
+}
+
+int main()
+{
+
+        int* a = malloc(a_count * sizeof(int));
+
+        for (int i = 0; i < a_count; i++) {
+            scanf("%d",&a[i]);
+        }
+
+        char* result = isValid(a_count, a);
+        printf("%s",result);
+        return 0;
+}
